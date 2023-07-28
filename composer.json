@@ -1,5 +1,5 @@
 {
-  "name": "maris/symfony-direction-bundle",
+  "name": "maris/symfony-directions-bundle",
   "description": "Пакет добавляет возможность сохранения маршрутов движения в базе данных.",
   "license": "MIT",
   "version": "0.0.1",
