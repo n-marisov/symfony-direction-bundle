@@ -1,0 +1,47 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd">
+
+    <!-- Реализует собой фигуру на карте -->
+    <entity name="Maris\Symfony\Direction\Entity\Segment" table="direction_segments" inheritance-type="SINGLE_TABLE" >
+        
+        
+        <discriminator-column name="view" />
+        <discriminator-map>
+            <discriminator-mapping value="ROUTE" class="Maris\Symfony\Direction\Entity\Route"/>
+            <discriminator-mapping value="LEG" class="Maris\Symfony\Direction\Entity\Leg"/>
+            <discriminator-mapping value="STEP" class="Maris\Symfony\Direction\Entity\Step"/>
+        </discriminator-map>
+
+        <!-- ID записи в базе -->
+        <id name="id" type="integer" column="id">
+            <generator/>
+        </id>
+
+        <!-- Длинна участка в метрах -->
+        <field name="distance" type="float" />
+
+        <!-- Время в пути в секундах -->
+        <field name="duration" type="float" />
+
+        <many-to-one field="parent" target-entity="Maris\Symfony\Direction\Entity\Segment" inversed-by="children">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+            <join-columns>
+                <join-column name="parent_id"/>
+            </join-columns>
+        </many-to-one>
+
+        <one-to-many field="children" target-entity="Maris\Symfony\Direction\Entity\Segment" mapped-by="parent">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
+
+    </entity>
+
+</doctrine-mapping>

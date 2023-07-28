@@ -1,0 +1,38 @@
+{
+  "name": "maris/symfony-direction-bundle",
+  "description": "Пакет добавляет возможность сохранения маршрутов движения в базе данных.",
+  "license": "MIT",
+  "version": "0.0.1",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Марисов Николай Андреевич",
+      "email": "marisov123456789@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "symfony/http-client": "^6.0",
+    "maris/symfony-geo-bundle": "dev-master"
+  },
+
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/n-marisov/symfony-geo-bundle.git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Maris\\Symfony\\Direction\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Maris\\Symfony\\Direction\\Test\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  }
+}

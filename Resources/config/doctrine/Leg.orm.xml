@@ -1,0 +1,17 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd">
+
+    <!-- Реализует собой полигон на карте -->
+    <entity name="Maris\Symfony\Direction\Entity\Leg" >
+
+       <!-- <one-to-many field="steps" target-entity="Maris\Symfony\Direction\Entity\Step" mapped-by="parent">
+            <cascade>
+                <cascade-persist/>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many> -->
+    </entity>
+
+</doctrine-mapping>
